@@ -32,5 +32,6 @@
   },
   "devDependencies": {
     "prettier": "^1.17.0"
-  }
+  },
+  "repository": "https://github.com/julietrubin/datocms-tinmanshop.git"
 }

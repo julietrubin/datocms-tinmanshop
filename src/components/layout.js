@@ -5,6 +5,8 @@ import PropTypes from "prop-types";
 import { Link } from "gatsby";
 import { StaticQuery, graphql } from "gatsby";
 import { HelmetDatoCms } from "gatsby-source-datocms";
+import Img from 'gatsby-image'
+
 
 import "../styles/index.sass";
 
@@ -31,6 +33,12 @@ const TemplateWrapper = ({ children }) => {
                 html
               }
             }
+            background {
+              url
+              fluid(maxWidth: 600, imgixParams: { fm: "jpg", auto: "compress" }) {
+                ...GatsbyDatoCmsSizes
+              }
+            }
             copyright
           }
           allDatoCmsSocialProfile(sort: { fields: [position], order: ASC }) {
@@ -45,6 +53,9 @@ const TemplateWrapper = ({ children }) => {
       `}
       render={data => (
         <div className={`container ${showMenu ? "is-open" : ""}`}>
+        <div className="sheet__background">
+          <Img objectFit="cover" style={{position: 'initial'}} fluid={data.datoCmsHome.background.fluid} />
+        </div>
           <HelmetDatoCms
             favicon={data.datoCmsSite.faviconMetaTags}
             seo={data.datoCmsHome.seoMetaTags}
