@@ -7,18 +7,18 @@ import Layout from "../components/layout"
 const StorePage = ({ data }) => (
   <Layout>
     <Masonry className="showcase">
-      {data.allDatoCmsStore.edges.map(({ node: work }) => (
-        <div key={work.id} className="showcase__item">
+      {data.allDatoCmsStore.edges.map(({ node: store }) => (
+        <div key={store.id} className="showcase__item">
           <figure className="card">
-            <Link to={`/works/${work.slug}`} className="card__image">
-              <Img fluid={work.coverImage.fluid} />
+            <Link to={`/store/${store.slug}`} className="card__image">
+              <Img fluid={store.coverImage.fluid} />
             </Link>
             <figcaption className="card__caption">
               <h6 className="card__title">
-                <Link to={`/store/${work.slug}`}>{work.title}</Link>
+                <Link to={`/store/${store.slug}`}>{work.title}</Link>
               </h6>
               <div className="card__description">
-                <p>{work.excerpt}</p>
+                <p>{store.excerpt}</p>
               </div>
             </figcaption>
           </figure>
