@@ -15,7 +15,7 @@ const StorePage = ({ data }) => (
             </Link>
             <figcaption className="card__caption">
               <h6 className="card__title">
-                <Link to={`/store/${store.slug}`}>{work.title}</Link>
+                <Link to={`/store/${store.slug}`}>{store.title}</Link>
               </h6>
               <div className="card__description">
                 <p>{store.excerpt}</p>
